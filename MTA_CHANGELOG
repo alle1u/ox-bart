@@ -1,0 +1,14 @@
+##################### 30x changes
+Changes for 30x
+- Created ox-bart/docker_build.mta.sh to just run a shell for testing
+- HELiOS 6.10 is obsolete (according to Scientific Linux) and no
+  longer supported by GE, and so no more yum install in
+    ox-bart/ox2.0/docker_build_helper.sh 
+  Instead downloaded the rpms, which are in
+    /stor/local/orchestra/compiles/ox-bart/rpm
+  and line is "rpm -ihv rpm/*.rpm"
+- Fixed a missing GE system library linkage by going into
+  ox-bart/src/<project> and edited each CMakeLists.txt to include the
+  extra line 
+  * target_link_libraries(${PROJECT_NAME} FrameDownSampler)
+

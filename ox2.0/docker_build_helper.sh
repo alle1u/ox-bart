@@ -7,7 +7,7 @@ export OPENBLAS_PATH=/opt/OpenBLAS
 export LD_LIBRARY_PATH=${OPENBLAS_PATH}/lib:${LD_LIBRARY_PATH}
 
 # update repo index
-cat ox2.0/yum.conf > /etc/yum.conf
+#cat ox2.0/yum.conf > /etc/yum.conf
 
 # build OpenBLAS
 pushd /usr/local/openblas
@@ -16,7 +16,8 @@ make install
 popd
 
 # install required HELiOS packages
-yum install -y libpng-devel fftw3-devel lapack-devel
+#yum install -y libpng-devel fftw3-devel lapack-devel
+rpm -ihv rpm/*.rpm
 
 # build BART
 echo cp ox2.0/bart/src/num/fft.c ${TOOLBOX_PATH}/src/num/fft.c
